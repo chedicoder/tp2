@@ -1,0 +1,28 @@
+services:
+  spring-app:
+    image: spring:v1 
+    ports:
+      - "8080:8085"  
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: ranjan715/springboot-with-mongodb:v11
+    environment:
+      MONGO_INITDB_DATABASE: mydb
+      MONGO_INITDB_ROOT_USERNAME: chedi
+      MONGO_INITDB_ROOT_PASSWORD: chedi
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
+volumes:
+  mongo_data:
+
+networks:
+  mynetwork:
