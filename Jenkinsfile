@@ -1,8 +1,6 @@
 pipeline {
     agent any
     environment {
-        GIT_URL = "https://gitlab.com/chedicoder/jenkins.git"
-        GIT_BRANCH = "master"
         DOCKER_IMAGE = "spring:v1"
         USERNAME = "chedi1"
         TOKEN = credentials('DockerHub')
